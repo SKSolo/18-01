@@ -1,0 +1,45 @@
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+bool pierwsza(int napis)
+{	
+	
+ for (int i=2; i<napis/2; i++)
+     if (napis %i == 0) 
+     {
+           cout << "złożona";
+           return false;
+     }
+    cout << "pierwsza";
+
+
+}
+int main(int argc, char** argv) {
+	
+	int napis;
+	
+	ifstream plik;
+	ofstream plik2;
+	
+	plik.open("d:\\a.txt"); 
+	 
+    	while(!plik.eof())  
+            {
+             plik>>napis;
+            }
+        
+      plik2.open("d:\\wynik.txt");
+	       
+        if(pierwsza(napis))
+        {
+        	plik2<<napis<<"pierwsza"<<endl;
+		}
+		else
+		{
+			plik2<<napis<<"Zlozona"<<endl;
+		}
+	plik.close();
+	plik2.close();
+	return 0;
+}
